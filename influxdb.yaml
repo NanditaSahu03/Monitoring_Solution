@@ -22,3 +22,15 @@ services:
       - $PWD/telegraf.conf:/etc/telegraf/telegraf.conf
     depends_on:
       - influxdb-cli
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - '3000:3000'
+    depends_on:
+      - influxdb-cli
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+
