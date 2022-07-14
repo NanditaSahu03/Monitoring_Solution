@@ -8,7 +8,7 @@ services:
       - 2181:2181
 
   kafka:
-    image: confluentinc/cp-kafka:latest
+    image: confluentinc/cp-kafka
     depends_on:
       - zookeeper
     ports:
@@ -52,7 +52,7 @@ services:
         kafka-topics --create --topic=services --if-not-exists --bootstrap-server=kafka:9092"
 
   connect:
-    image: confluentinc/cp-kafka-connect:3.2.0
+    image: confluentinc/cp-kafka-connect          #confluentinc/cp-kafka-connect:3.2.0
     depends_on:
     - zookeeper
     - kafka
